@@ -207,15 +207,8 @@
         }
 
         .featured-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-            animation: orbitGlow 15s linear infinite;
+            content: none;
+            display: none;
         }
 
         @keyframes currentlyGlow {
@@ -837,6 +830,23 @@
             line-height: 1.5;
         }
 
+        /* About Me */
+        .about-card p {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .about-card ul {
+            margin: 0.8rem 0 1rem 1.25rem;
+        }
+
+        .about-card li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.6rem;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -960,6 +970,31 @@
                 </div>
             </div>
         </div>
+
+                    <!-- About Me Section -->
+                    <section>
+                        <h2 class="section-title">About Me</h2>
+                        <div class="glass-card about-card">
+                            <p>
+                                Hi, I’m <strong>Param Modi</strong>, a Computer Science postgraduate student at <strong>International Institute of Information Technology Hyderabad</strong>, currently pursuing my <strong>M.Tech in CSE (2025—2027)</strong>. I’m an aspiring <strong>Software Development Engineer</strong> who enjoys designing efficient systems, solving complex problems, and building reliable, scalable software.
+                            </p>
+                            <p>
+                                I have a strong foundation in <strong>Data Structures & Algorithms</strong>, which drives my approach to writing optimized and maintainable code. I primarily work with <strong>C, C++, and JavaScript</strong>, and have hands-on experience developing backend systems using <strong>Node.js, Express, and MongoDB</strong>. I’m also comfortable on the frontend with <strong>React, HTML, CSS, and Tailwind</strong>, enabling me to contribute across the full stack when required.
+                            </p>
+                            <p>
+                                Beyond application development, I’m deeply interested in <strong>core computer science concepts</strong> such as multithreading, socket programming, and Linux-based system development. I enjoy understanding how software interacts with the system layer and applying that knowledge to build more efficient applications.
+                            </p>
+                            <p>I've demonstrated strong problem-solving skills through national-level competitive exams, securing:</p>
+                            <ul>
+                                <li>All India Rank 96 in Post Graduate Entrance Examination (PGEE 2025)</li>
+                                <li>All India Rank 1121 in Graduate Aptitude Test in Engineering CSE 2025</li>
+                                <li>All India Rank 4172 in GATE DSAI 2025</li>
+                            </ul>
+                            <p>
+                                Originally from <strong>Surat, Gujarat</strong>, I completed my B.E. in Anand before moving to Hyderabad to pursue advanced studies in Computer Science. I’m currently seeking opportunities as a <strong>Software Development Engineer</strong>, where I can contribute to impactful products while continuously growing through challenging engineering problems.
+                            </p>
+                        </div>
+                    </section>
 
         <!-- Education Section -->
         <section>
