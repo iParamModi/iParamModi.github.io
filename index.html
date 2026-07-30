@@ -831,6 +831,42 @@
         }
 
         /* About Me */
+        .about-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.25);
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .about-image-wrapper img:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(99, 102, 241, 0.4);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
         .about-card p {
             color: rgba(255, 255, 255, 0.82);
             font-size: 1rem;
@@ -845,6 +881,30 @@
         .about-card li {
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 0.6rem;
+        }
+
+        @media (max-width: 968px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image-wrapper img {
+                max-width: 100%;
+                max-height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .about-image-wrapper img {
+                max-width: 100%;
+                max-height: 300px;
+            }
         }
 
         /* Footer */
@@ -975,26 +1035,34 @@
                     <section>
                         <h2 class="section-title">About Me</h2>
                         <div class="glass-card about-card">
-                            <p>
-                                Hi, I’m <strong>Param Modi</strong>, a Computer Science postgraduate student at <strong>International Institute of Information Technology Hyderabad</strong>, currently pursuing my <strong>M.Tech in CSE (2025—2027)</strong>. I’m an aspiring <strong>Software Development Engineer</strong> who enjoys designing efficient systems, solving complex problems, and building reliable, scalable software.
-                            </p>
-                            <p>
-                                I have a strong foundation in <strong>Data Structures & Algorithms</strong>, which drives my approach to writing optimized and maintainable code. I primarily work with <strong>C, C++, and JavaScript</strong>, and have hands-on experience developing backend systems using <strong>Node.js, Express, and MongoDB</strong>. I’m also comfortable on the frontend with <strong>React, HTML, CSS, and Tailwind</strong>, enabling me to contribute across the full stack when required.
-                            </p>
-                            <p>
-                                Beyond application development, I’m deeply interested in <strong>core computer science concepts</strong> such as multithreading, socket programming, and Linux-based system development. I enjoy understanding how software interacts with the system layer and applying that knowledge to build more efficient applications.
-                            </p>
-                            <p>I've demonstrated strong problem-solving skills through national-level competitive exams, securing:</p>
-                            <ul>
-                                <li>All India Rank 96 in Post Graduate Entrance Examination (PGEE 2025)</li>
-                                <li>All India Rank 1121 in Graduate Aptitude Test in Engineering CSE 2025</li>
-                                <li>All India Rank 4172 in GATE DSAI 2025</li>
-                            </ul>
-                            <p>
-                                Originally from <strong>Surat, Gujarat</strong>, I completed my B.E. in Anand before moving to Hyderabad to pursue advanced studies in Computer Science. I’m currently seeking opportunities as a <strong>Software Development Engineer</strong>, where I can contribute to impactful products while continuously growing through challenging engineering problems.
-                            </p>
+                            <div class="about-container">
+                                <div class="about-image-wrapper">
+                                    <img src="images/profile.jpeg" alt="Param Modi at Walmart Global Tech" />
+                                </div>
+                                <div class="about-content">
+                                    <p>
+                                        Hi, I'm <strong>Param Modi</strong>, a Computer Science postgraduate student at <strong>International Institute of Information Technology Hyderabad</strong>, currently pursuing my <strong>M.Tech in CSE (2025—2027)</strong>. I'm an aspiring <strong>Software Development Engineer</strong> who enjoys designing efficient systems, solving complex problems, and building reliable, scalable software.
+                                    </p>
+                                    <p>
+                                        I have a strong foundation in <strong>Data Structures & Algorithms</strong>, which drives my approach to writing optimized and maintainable code. I primarily work with <strong>C, C++, and JavaScript</strong>, and have hands-on experience developing backend systems using <strong>Node.js, Express, and MongoDB</strong>. I'm also comfortable on the frontend with <strong>React, HTML, CSS, and Tailwind</strong>, enabling me to contribute across the full stack when required.
+                                    </p>
+                                    <p>
+                                        Beyond application development, I'm deeply interested in <strong>core computer science concepts</strong> such as multithreading, socket programming, and Linux-based system development. I enjoy understanding how software interacts with the system layer and applying that knowledge to build more efficient applications.
+                                    </p>
+                                    <p>I've demonstrated strong problem-solving skills through national-level competitive exams, securing:</p>
+                                    <ul>
+                                        <li>All India Rank 96 in Post Graduate Entrance Examination (PGEE 2025)</li>
+                                        <li>All India Rank 1121 in Graduate Aptitude Test in Engineering CSE 2025</li>
+                                        <li>All India Rank 4172 in GATE DSAI 2025</li>
+                                    </ul>
+                                    <p>
+                                        Originally from <strong>Surat, Gujarat</strong>, I completed my B.E. in Anand before moving to Hyderabad to pursue advanced studies in Computer Science. I'm currently seeking opportunities as a <strong>Software Development Engineer</strong>, where I can contribute to impactful products while continuously growing through challenging engineering problems.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </section>
+
 
         <!-- Education Section -->
         <section>
@@ -1008,7 +1076,7 @@
                             <div class="duration">2025 — Present</div>
                         </div>
                     </div>
-                    <span class="cgpa">CGPA: 8.11</span>
+                    <span class="cgpa">CGPA: 7.43</span>
                 </div>
 
                 <div class="education-card">
@@ -1031,6 +1099,30 @@
                 <div class="experience-card">
                     <div class="exp-header">
                         <div>
+                            <h3>Walmart Global Tech</h3>
+                            <div class="position">Software Engineer Intern</div>
+                        </div>
+                        <div class="exp-duration">May 2026 — July 2026</div>
+                    </div>
+                    <div class="exp-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Bangalore, Karnataka, India
+                    </div>
+                    <ul>
+                        <li>Integrated the Debugger with <strong>OpenObserve</strong> to enable real-time access to production logs and support evidence-based debugging workflows.</li>
+                        <li>Worked on secure authentication and token handling for internal services, improving reliability while following strong security practices.</li>
+                        <li>Built a <strong>log sanitization pipeline</strong> to clean and structure raw logs into safer, more useful input for downstream AI analysis.</li>
+                        <li>Implemented a secure server-side integration for Shinchan to generate signatures without exposing private keys, strengthening the overall system design.</li>
+                        <li>Contributed to deployment metadata caching and access control logic to improve performance while preserving correct team-level permissions.</li>
+                        <li>Diagnosed and fixed critical issues in the log retrieval flow, which restored successful ingestion of logs and improved system reliability.</li>
+                        <li>Helped connect the Debugger backend with the <strong>Unified UI</strong> and learned how frontend-backend integration works in a production environment.</li>
+                        <li>Gained hands-on experience in debugging distributed systems, handling authentication flows, and building solutions with an emphasis on reliability and observability.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div>
                             <h3>HP Param IT Solutions</h3>
                             <div class="position">Software Developer Intern</div>
                         </div>
@@ -1038,7 +1130,7 @@
                     </div>
                     <div class="exp-location">
                         <i class="fas fa-map-marker-alt"></i>
-                        Anand, Gujarat
+                        Anand, Gujarat, India
                     </div>
                     <ul>
                         <li>Worked on backend development using modern web technologies and best practices.</li>
