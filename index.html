@@ -288,17 +288,20 @@
         }
 
         .current-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
             margin-top: 2rem;
         }
 
         .current-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
             background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(249, 115, 22, 0.08) 100%);
             border: 2px solid rgba(236, 72, 153, 0.35);
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 16px;
+            padding: 1.25rem 1.75rem;
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             overflow: hidden;
@@ -323,37 +326,41 @@
         .current-item:hover {
             background: linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(249, 115, 22, 0.15) 100%);
             border-color: rgba(255, 107, 53, 0.7);
-            transform: translateY(-12px);
-            box-shadow: 0 25px 70px rgba(236, 72, 153, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            transform: translateX(6px);
+            box-shadow: 0 15px 40px rgba(236, 72, 153, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
         }
 
         .current-item-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            flex-shrink: 0;
             animation: float 3s ease-in-out infinite;
             opacity: 0.8;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .current-item-text {
+            flex: 1;
+            min-width: 0;
         }
 
         .current-item-title {
             font-weight: 600;
             color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
         .current-item-desc {
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: 700;
             line-height: 1.4;
-            margin-bottom: 1.2rem;
             background: linear-gradient(135deg, #fca5a5 0%, #fdba74 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -362,10 +369,10 @@
 
         .current-item-meta {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+            flex-shrink: 0;
             font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.6);
         }
@@ -952,6 +959,26 @@
                 align-items: flex-start;
             }
 
+            .exp-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .exp-duration {
+                white-space: normal;
+            }
+
+            .achievement-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+
             .container {
                 padding: 1rem;
             }
@@ -975,6 +1002,15 @@
                 padding: 1.5rem;
             }
 
+            .experience-card,
+            .education-card,
+            .project-card,
+            .skill-category,
+            .current-item,
+            .achievement-card {
+                padding: 1.5rem;
+            }
+
             .section-title {
                 font-size: 1.25rem;
             }
@@ -982,6 +1018,23 @@
             .project-card li,
             .experience-card li {
                 font-size: 0.85rem;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .current-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .current-item-meta {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
             }
         }
     </style>
@@ -1020,11 +1073,25 @@
                 <div class="current-items">
                     <div class="current-item" data-status="Active">
                         <div class="current-item-icon">🎓</div>
-                        <div class="current-item-title">M.Tech in CSE</div>
-                        <div class="current-item-desc">International Institute of Information Technology Hyderabad</div>
+                        <div class="current-item-text">
+                            <div class="current-item-title">M.Tech in CSE</div>
+                            <div class="current-item-desc">International Institute of Information Technology Hyderabad</div>
+                        </div>
                         <div class="current-item-meta">
                             <span>2025 — Present</span>
                             <span class="status-badge">Active</span>
+                        </div>
+                    </div>
+
+                    <div class="current-item" data-status="Upcoming">
+                        <div class="current-item-icon">🚀</div>
+                        <div class="current-item-text">
+                            <div class="current-item-title">Incoming Software Development Engineer</div>
+                            <div class="current-item-desc">Walmart Global Tech</div>
+                        </div>
+                        <div class="current-item-meta">
+                            <span>Joining 2027</span>
+                            <span class="status-badge">Upcoming</span>
                         </div>
                     </div>
                 </div>
@@ -1109,14 +1176,11 @@
                         Bangalore, Karnataka, India
                     </div>
                     <ul>
-                        <li>Integrated the Debugger with <strong>OpenObserve</strong> to enable real-time access to production logs and support evidence-based debugging workflows.</li>
-                        <li>Worked on secure authentication and token handling for internal services, improving reliability while following strong security practices.</li>
-                        <li>Built a <strong>log sanitization pipeline</strong> to clean and structure raw logs into safer, more useful input for downstream AI analysis.</li>
-                        <li>Implemented a secure server-side integration for Shinchan to generate signatures without exposing private keys, strengthening the overall system design.</li>
-                        <li>Contributed to deployment metadata caching and access control logic to improve performance while preserving correct team-level permissions.</li>
-                        <li>Diagnosed and fixed critical issues in the log retrieval flow, which restored successful ingestion of logs and improved system reliability.</li>
-                        <li>Helped connect the Debugger backend with the <strong>Unified UI</strong> and learned how frontend-backend integration works in a production environment.</li>
-                        <li>Gained hands-on experience in debugging distributed systems, handling authentication flows, and building solutions with an emphasis on reliability and observability.</li>
+                        <li>Contributed to an AI-powered debugging assistant that helps engineers investigate production issues by reasoning over live logs and system data.</li>
+                        <li>Integrated real-time log observability tooling and built a sanitization pipeline to securely clean and structure raw logs for downstream analysis.</li>
+                        <li>Implemented secure authentication and server-side credential handling to safely enable integrations with internal services.</li>
+                        <li>Diagnosed and resolved critical reliability issues in the log retrieval pipeline, restoring consistent access to production data.</li>
+                        <li>Collaborated on integrating the backend with a new unified front-end, gaining hands-on experience with full-stack development in a production environment.</li>
                     </ul>
                 </div>
 
