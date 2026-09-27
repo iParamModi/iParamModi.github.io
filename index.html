@@ -728,9 +728,19 @@
         /* Skills */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas:
+                "lang ai backend"
+                "web  ai backend"
+                "core core core";
             gap: 2rem;
         }
+
+        .skill-lang { grid-area: lang; }
+        .skill-web { grid-area: web; }
+        .skill-ai { grid-area: ai; }
+        .skill-backend { grid-area: backend; }
+        .skill-core { grid-area: core; }
 
         .skill-category {
             background: linear-gradient(135deg, rgba(236, 72, 153, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
@@ -976,7 +986,11 @@
             }
 
             .skills-container {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-areas:
+                    "lang web"
+                    "ai backend"
+                    "core core";
             }
 
             .container {
@@ -1022,6 +1036,12 @@
 
             .skills-container {
                 grid-template-columns: 1fr;
+                grid-template-areas:
+                    "lang"
+                    "web"
+                    "ai"
+                    "backend"
+                    "core";
             }
 
             .current-item {
@@ -1207,6 +1227,33 @@
         <section>
             <h2 class="section-title">Featured Projects</h2>
             <div class="grid-2">
+                <!-- Project: Hindi & Nepali Language Models -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Multilingual Transformer Language Modeling</h3>
+                        <span class="project-date">Aug 2026</span>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Transformers</span>
+                        <span class="tech-tag">Self-Attention</span>
+                        <span class="tech-tag">LLM Pretraining</span>
+                        <span class="tech-tag">Fine-Tuning</span>
+                        <span class="tech-tag">BPE Tokenization</span>
+                        <span class="tech-tag">SentencePiece</span>
+                        <span class="tech-tag">NLP</span>
+                    </div>
+                    <ul>
+                        <li>Built two <strong>GPT-style decoder-only Transformers</strong> from scratch in PyTorch, without pretrained models, tokenizers or ready-made Transformer libraries.</li>
+                        <li>Created corpora with a <strong>crash-safe web crawler</strong> and a cleaning pipeline using language ID, <strong>MinHash/LSH de-duplication</strong> and perplexity filtering, then trained custom <strong>BPE tokenizers</strong>.</li>
+                        <li>Pretrained on a single GPU with <strong>mixed precision</strong>, gradient accumulation and resumable checkpointing, then <strong>fine-tuned for reasoning</strong> and analysed generalisation and attention behaviour.</li>
+                    </ul>
+                    <a href="https://github.com/CL3-410/individual-project-iParamModi/tree/phase-3" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+
                 <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-header">
@@ -1298,54 +1345,54 @@
         <section>
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-container">
-                <div class="skill-category">
+                <div class="skill-category skill-lang">
                     <h3>Languages</h3>
                     <div class="skills-list">
                         <span class="skill-item">C</span>
                         <span class="skill-item">C++</span>
-                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">SQL</span>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3>Frontend</h3>
+                <div class="skill-category skill-web">
+                    <h3>Web</h3>
                     <div class="skills-list">
-                        <span class="skill-item">React</span>
                         <span class="skill-item">HTML</span>
                         <span class="skill-item">CSS</span>
-                        <span class="skill-item">Tailwind</span>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <div class="skills-list">
-                        <span class="skill-item">Node.js</span>
-                        <span class="skill-item">Express</span>
-                        <span class="skill-item">MongoDB</span>
-                        <span class="skill-item">Mongoose</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
+                <div class="skill-category skill-core">
                     <h3>Core Concepts</h3>
                     <div class="skills-list">
-                        <span class="skill-item">Data Structures</span>
-                        <span class="skill-item">Algorithms</span>
+                        <span class="skill-item">Data Structures / Algorithms</span>
                         <span class="skill-item">Socket Programming</span>
-                        <span class="skill-item">Multi-threading</span>
+                        <span class="skill-item">Process Management</span>
+                        <span class="skill-item">Concurrency / Multi-threading</span>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3>Tools & Frameworks</h3>
+                <div class="skill-category skill-ai">
+                    <h3>AI &amp; Agentic Systems</h3>
                     <div class="skills-list">
-                        <span class="skill-item">Linux</span>
-                        <span class="skill-item">OpenCV</span>
-                        <span class="skill-item">Socket.IO</span>
-                        <span class="skill-item">Leaflet.js</span>
-                        <span class="skill-item">JWT</span>
-                        <span class="skill-item">Multer</span>
+                        <span class="skill-item">Agentic AI</span>
+                        <span class="skill-item">LangGraph</span>
+                        <span class="skill-item">LLM Orchestration</span>
+                        <span class="skill-item">Retrieval-Augmented Generation (RAG)</span>
+                        <span class="skill-item">Model Context Protocol (MCP)</span>
+                        <span class="skill-item">Prompt Engineering</span>
+                    </div>
+                </div>
+
+                <div class="skill-category skill-backend">
+                    <h3>Backend &amp; Infrastructure</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">FastAPI</span>
+                        <span class="skill-item">REST APIs</span>
+                        <span class="skill-item">OAuth2 / SSO Authentication</span>
+                        <span class="skill-item">Service Mesh</span>
+                        <span class="skill-item">Caching Strategies</span>
                     </div>
                 </div>
             </div>
